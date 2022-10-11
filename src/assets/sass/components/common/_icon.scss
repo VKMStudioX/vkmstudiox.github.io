@@ -1,0 +1,11 @@
+.common-icon {
+    &--css3 {
+        color: $color-icon-css3;
+    }
+    &--html5 {
+        color: $color-icon-html5;
+    }
+    &--express {
+        color: $color-white;
+    }
+}

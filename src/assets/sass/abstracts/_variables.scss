@@ -1,0 +1,85 @@
+// COLORS
+$color-primary: #ebb780;
+$color-secondary: #272857;
+$color-box-shadow: #272857;
+$color-box-shadow-2: #3d3e73;
+$color-primary-gradient-1: #ff9f38;
+$color-primary-gradient-2: #FCA64B;
+$color-primary-gradient-3: #F8B165;
+$color-primary-gradient-4: #FF890B;
+$color-primary-gradient-5: #E67C09;
+$color-primary-gradient-6: #f08a1d;
+$color-primary-light-1: #FFC98E;
+$color-primary-light-2: #fde9d2;
+$color-primary-dark-1: #E67D0B;
+$color-bg-gradient-1: #F2F3FF;
+$color-bg-gradient-2: #FFFFFF;
+$color-bg-gradient-3: #F8F8FF;
+$color-bg-gradient-4: #F8F8FF;
+$color-bg-gray-light-1: #DFDFE5;
+$color-bg-gray-light-2: #f9fafb;
+$color-bg-gray-light-3: #F9F9FF;
+$color-bg-gray-light-4: #F5F5F5;
+$color-bg-gray-light-5: #F2F2FD;
+$color-bg-orange-light: #fff7f3;
+$color-bg-orange-gradient: #F5AB26;
+$color-bg-avatar-list: ( a: #485CA4, b: #F5AB26, c: #444444, d: #ff0066, e: #ff9955, f: #35495e, g: #3a0707, h: #81c386, i: #ff0082, j: #485CA4, k: #F5AB26, l: #444444, m: #8943AA, n: #ff9955, o: #35495e, p: #387952, q: #81c386, r: #ff0082, s: #3a0707, t: #485CA4, u: #F5AB26, w: #444444, x: #ff0066, y: #ff9955, z: #35495e, );
+$color-input-border: #F2F2F6;
+$color-input-focus-border: #D4D4E0;
+$color-input-focus-bg: #FDFDFE;
+$color-input-text: #272857;
+$color-placeholder-text: #2728578C;
+$color-text-gray: #C1C1C1;
+$color-text-gray-2: #A1A1B4;
+$color-text-not-active: #8C8C8D;
+$color-text-secondary-1: #A1A1B4;
+$color-text-secondary-2: #666788;
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-primary-text-2: #FFCD97;
+$color-secondary-text-1: #33415c;
+$color-secondary-text-2: #2b3955;
+$color-secondary-link-1: #122241;
+$color-secondary-link-2: #4f5b72;
+$color-secondary-link-3: #6e788b;
+$color-transparent: transparent;
+$color-invalid: #FF385C;
+$color-success: #32C35B;
+$color-success-2: #3ba776;
+$color-disabled: #C1C1C1;
+$color-read-only: #f7f5f5;
+$color-read-only-2: #ebb780;
+$color-text-read-only-2: #6a6b8d;
+$color-icon-css3: #264de4;
+$color-icon-html5: #e34c26;
+:root {
+    --color-primary-text: $color-primary-text;
+    --color-secondary-text: $color-secondary-text;
+}
+
+//GRID-MARGINS
+$full-hd-margin: 1fr;
+$site-max-content-margin: 7vw;
+$mobile-margin: 1.25rem;
+$body-margin: 1rem;
+// WIDTHS
+$min-width: 1rem; // 16px
+$max-width: 1300px; // 1480px
+$max-width-site-content: calc(100vw - $site-max-content-margin - $site-max-content-margin - $body-margin - $body-margin); //
+$max-width-mobile: calc(100vw - $mobile-margin - $mobile-margin - $body-margin - $body-margin);
+$max-width-mobile-validation: calc(100vw - $mobile-margin - $mobile-margin - 40px);
+$max-width-mobile-insurances-table: calc(100vw - $mobile-margin - 5px);
+$vs-dropdown-min-width: 1.875rem; // 30px;
+$cp-table-max-width: 92.625rem; //1482px
+// FONT
+$default-font-size: 1rem;
+$default-font-weight: 400;
+$default-font-style: normal;
+$default-font-family: Mulish,
+sans-serif;
+$geogrotesque-font-family: Geogrotesque,
+sans-serif;
+$poppins-font-family: Poppins,
+sans-serif;
+$roboto-font-family: Roboto,
+sans-serif;

@@ -1,0 +1,31 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: $body-margin;
+    background: $color-black;
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    @include respond(sm) {
+        font-size: 12px;
+    }
+}
+
+.vue-universal-modal {
+    z-index: 2000;
+}

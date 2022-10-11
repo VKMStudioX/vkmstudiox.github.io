@@ -1,0 +1,257 @@
+.info-background {
+    background: url(@/assets/img/info/info-image-fullhd.webp) no-repeat center;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    min-height: 100vh;
+    margin-bottom: 1rem;
+}
+
+.info {
+    display: grid;
+    grid: repeat(3, max-content) / 1fr;
+    gap: 3rem;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    &__header {
+        display: grid;
+        grid: repeat(2, max-content) / 70% 1fr;
+        gap: 2rem;
+        place-self: start;
+        width: 100%;
+        @include respond(lg) {
+            column-gap: 1rem;
+        }
+        @include respond(sm) {
+            grid: repeat(3, max-content) / 1fr;
+            place-self: center;
+        }
+    }
+    &__content {
+        display: grid;
+        grid: repeat(5, max-content) / 1fr;
+        gap: 2rem;
+        place-content: center;
+        background: rgba($color-black, .666);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba($color-primary, .666);
+        padding: 1.5rem;
+        opacity: 0.666;
+        &-text {
+            font-family: Carel_term, sans-serif;
+            font-size: 1.75rem;
+            color: $color-white;
+            vertical-align: middle;
+            text-align: justify;
+            line-height: 2rem;
+            @include respond(sm) {
+                font-size: 1.25rem;
+            }
+        }
+        h2 {
+            font-family: Carel_term, sans-serif;
+            color: $color-primary;
+            font-size: 2.5rem;
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: start;
+            gap: 0.5rem;
+            margin: 0;
+            @include respond(sm) {
+                font-size: 1.5rem;
+            }
+        }
+        &:hover {
+            opacity: .75;
+        }
+        &-icon {
+            height: 1.75rem;
+            @include respond(sm) {
+                height: 1.25rem;
+            }
+        }
+        &-h2-icon {
+            height: 2.5rem;
+            @include respond(sm) {
+                height: 1.5rem;
+            }
+        }
+    }
+    &__skills {
+        width: 100%;
+    }
+}
+
+.info-header {
+    &__title {
+        grid-area: 1 / 1 / 2 / 2;
+        font-family: 'Black Ops One', cursive;
+        color: $color-primary;
+        font-size: 75px;
+        text-shadow: 5px 3px 0px $color-text-secondary-2;
+        place-self: start;
+        font-weight: normal;
+        transition: all 0.25s ease-in-out;
+        @include respond(xl) {
+            font-size: 50px;
+            text-shadow: 2px 1px 0px $color-text-secondary-2;
+        }
+        @include respond(sm) {
+            grid-area: 1 / 1 / 2 / 2;
+            font-size: 35px;
+        }
+    }
+    &__subtitle {
+        grid-area: 2 / 1 / 3 / 2;
+        font-family: 'Black Ops One', cursive;
+        color: rgba($color-text-secondary-2, 1);
+        font-size: 50px;
+        text-shadow: 2px 1px 0px $color-primary;
+        place-self: start;
+        margin-top: -1.5rem;
+        transition: all 0.25s ease-in-out;
+        @include respond(xl) {
+            font-size: 35px;
+        }
+        @include respond(sm) {
+            grid-area: 2 / 1 / 3 / 2;
+            font-size: 20px;
+        }
+    }
+    &__icons {
+        grid-area: 1 / 2 / 3 / 3;
+        justify-self: end;
+        align-self: center;
+        display: grid;
+        grid: auto / repeat(3, 1fr);
+        grid-auto-flow: column;
+        gap: 1rem;
+        @include respond(md) {
+            grid: auto / 1fr;
+            grid-auto-flow: row;
+        }
+        @include respond(sm) {
+            grid: auto / repeat(3, 1fr);
+            grid-auto-flow: column;
+            justify-self: start;
+            grid-area: 3 / 1 / 4 / 2;
+        }
+        &-item {
+            width: auto;
+            height: 50px;
+            // &:hover {
+            //     cursor: pointer;
+            // }
+            @include respond(sm) {
+                height: 30px;
+            }
+            &--linkedin {
+                height: 47.5px;
+                @include respond(sm) {
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+.info-skills {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    @include respond(1452px) {
+        justify-content: center;
+    }
+    @include respond(sm) {
+        gap: 1rem;
+    }
+    &__item {
+        width: 125px;
+        height: 125px;
+        padding: 1rem;
+        display: grid;
+        place-items: center;
+        // border: 1px solid black;
+        // box-shadow: 0 0.5rem 0.75rem rgba($color-white, 1);
+        background: rgba($color-black, .666);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba($color-primary, .666);
+        opacity: 0.666;
+        transition: all 0.5s ease-in-out;
+        @include respond(sm) {
+            width: 75px;
+            height: 75px;
+        }
+        &:hover {
+            transform: translateY(-20px);
+            opacity: .75;
+            @include respond(sm) {
+                transform: translateY(-5px);
+            }
+        }
+        &--icon {
+            height: 85px;
+            width: auto;
+            @include respond(sm) {
+                height: 50px;
+            }
+        }
+    }
+}
+
+.is-typed {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 2.5rem;
+}
+
+.is-typed span.typed {
+    color: $color-primary;
+}
+
+.is-typed span.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: $color-primary;
+    animation: blink 1s infinite;
+}
+
+.is-typed span.underscore {
+    display: inline-flex;
+    width: 10px;
+    height: 1px;
+    align-items: flex-end;
+    background-color: $color-primary;
+    animation: blink 1s infinite;
+}
+
+.is-typed span.cursor.typing {
+    animation: none;
+}
+
+@keyframes blink {
+    49% {
+        background-color: $color-text-secondary-2;
+    }
+    50% {
+        background-color: transparent;
+    }
+    99% {
+        background-color: transparent;
+    }
+}
+
+.white {
+    color: #d8d8d8 !important;
+}
+
+.color-initial {
+    color: darkblue !important;
+}

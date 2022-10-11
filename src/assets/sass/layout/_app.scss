@@ -1,0 +1,403 @@
+.header-layout {
+    transition: all 0.5s ease-in-out;
+    display: grid;
+    grid: auto / $full-hd-margin $max-width $full-hd-margin;
+    place-content: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin-top: 1.875rem;
+    z-index: 420;
+    @include respond(site-max-content) {
+        grid: auto / $site-max-content-margin $max-width-site-content $site-max-content-margin;
+        margin-top: 1rem;
+    }
+    @include respond(sm) {
+        grid: auto / $mobile-margin $max-width-mobile $mobile-margin;
+        margin-top: 1.5rem;
+    }
+    &--client-panel {
+        grid-template-columns: 100%;
+    }
+    &--client-panel-fixed {
+        grid-template-columns: 100%;
+    }
+    &--fixed {
+        background-color: white;
+        margin-top: 0 !important;
+        z-index: 2000;
+    }
+    &--fixed-not-safari {
+        display: grid;
+        grid-template-rows: repeat(auto-fill, max-content);
+        grid-template-columns: repeat(auto-fill, max-content);
+    }
+    &--login-register {
+        margin-top: 1.9063rem;
+        @include respond(site-max-content) {
+            margin-top: 1.125rem;
+        }
+        @include respond(sm) {
+            margin-top: 1.5rem;
+        }
+    }
+}
+
+.client-panel-header-layout {
+    grid-column: 1 / 3;
+    transition: all 0.5s ease-in-out;
+    display: grid;
+    &--fixed {
+        grid-column: 1 / 4;
+        width: 100%;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        z-index: 2000;
+    }
+    &--fixed-not-safari {
+        display: grid;
+        grid-template-rows: repeat(auto-fill, max-content);
+        grid-template-columns: repeat(auto-fill, max-content);
+    }
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: $full-hd-margin $max-width $full-hd-margin;
+    gap: 3.125rem 0;
+    box-shadow: 0px 0px 10px rgba($color-primary, 1);
+    // border: 1px solid rgba($color-primary, 1);
+    // margin-top: 7.25rem;
+    @include respond(site-max-content) {
+        grid-template-columns: $site-max-content-margin $max-width-site-content $site-max-content-margin;
+        gap: 1rem 0;
+    }
+    @include respond(sm) {
+        grid-template-columns: $mobile-margin $max-width-mobile $mobile-margin;
+        gap: 0;
+    }
+    &--index {
+        @include respond(sm) {
+            margin-top: 6rem
+        }
+    }
+    &--project {
+        grid-template-rows: repeat(2, max-content);
+        align-content: space-around;
+        align-items: space-around;
+        margin-bottom: 1rem;
+    }
+}
+
+.client-panel-page-layout {
+    display: grid;
+    grid: max-content / 15.625rem 1fr 4.875rem 0px;
+    grid-auto-flow: column;
+    @include respond(lg) {
+        grid: auto / 3vw 1fr 3vw 0px;
+        grid-auto-flow: row;
+    }
+    @include respond(sm) {
+        grid: max-content / $mobile-margin $max-width-mobile $mobile-margin;
+        grid-auto-flow: row;
+    }
+    &__header {
+        grid-column: 1 / 3;
+        margin-bottom: 6.66rem;
+        grid-template-columns: 100%;
+        place-content: space-between;
+        @include respond(lg) {
+            grid-column: 1 / 4;
+        }
+    }
+    &__navigation {
+        grid-column: 1 / 2;
+        margin-right: 2rem;
+        @include respond(lg) {
+            grid-column: 0;
+            display: none;
+        }
+    }
+    &__content {
+        grid-column: 2 / 3;
+        margin: 3.5rem 0 0 1rem;
+        @include respond(xl) {
+            margin: 3.5rem 2.875rem 0 1rem;
+        }
+        @include respond(lg) {
+            grid-column: 2 / 3;
+            margin: 3.5rem 0 0 0;
+        }
+        @include respond(sm) {
+            grid-column: 2 / 3;
+            margin: 0;
+            max-width: $max-width-mobile;
+        }
+    }
+    &__footer {
+        grid-column: 2 / 3;
+        align-self: end;
+        margin-left: 1rem;
+        @include respond(lg) {
+            grid-column: 2 / 3;
+            align-self: center;
+            margin: 0 auto;
+            //padding: 2rem;
+            width: 100%;
+        }
+        @include respond(sm) {
+            grid-column: 2 / 3;
+            align-self: center;
+            margin: 0 auto;
+            width: 100%;
+            .footer-mobile-layout-wrapper {
+                display: grid;
+                place-content: center;
+                @include respond (365px) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.main-layout {
+    grid-column: 2 / 3;
+    max-width: $max-width;
+    @include respond (lg) {
+        //padding: 0.5rem;
+    }
+    @include respond(sm) {
+        padding: 0;
+        //padding: 0 1.25rem;
+    }
+    &--mobile-no-padding {
+        @include respond(sm) {
+            padding: 0;
+        }
+    }
+    &--fluid {
+        grid-column: 1 / 4;
+    }
+}
+
+.main-layout-max {
+    grid-column: 1 / 4;
+}
+
+.client-panel-main-layout {
+    grid-column: 2 / 3;
+}
+
+.error-layout {
+    display: grid;
+    grid: 100vh / 100%;
+    place-content: center;
+    place-items: center;
+    background: linear-gradient(181.16deg, #F2F3FF -0.47%, #FFFFFF 36%, #FFFFFF 98.98%);
+    @include respond(sm) {
+        grid: 100%vh / 95vw;
+    }
+    &__content {
+        display: grid;
+        grid: repeat(3, max-content) / max-content;
+        gap: 2.75rem;
+        place-content: center;
+        place-items: center;
+        @include respond(sm) {
+            grid: repeat(3, max-content) / 95vw;
+        }
+        &-header {
+            font-weight: 800;
+            //font-size: 8.563rem;
+            font-size: 257px;
+            @include respond(xl) {
+                font-size: 225px;
+            }
+            @include respond(lg) {
+                font-size: 200px;
+            }
+            @include respond(md) {
+                font-size: 150px;
+            }
+            @include respond(sm) {
+                font-size: 7.5rem;
+            }
+        }
+        &-text {
+            font-weight: 800;
+            font-size: 2.75rem;
+            text-align: center;
+            @include respond(xl) {
+                font-size: 1.75rem;
+            }
+            @include respond(lg) {
+                font-size: 1.5rem;
+            }
+            @include respond(md) {
+                font-size: 1.25rem;
+            }
+        }
+        &-buttons {
+            width: 100%;
+            display: grid;
+            grid-auto-flow: column;
+            place-content: space-around;
+            margin-top: 6.25rem;
+            z-index: 100;
+            @include respond(sm) {
+                margin-top: 4rem;
+                grid-auto-flow: row;
+                place-items: center;
+                width: initial;
+                gap: 54px;
+            }
+            &-undo {
+                order: 1;
+                @include respond(sm) {
+                    order: 2;
+                    max-width: 88px;
+                }
+            }
+            &-home {
+                order: 2;
+                @include respond(sm) {
+                    order: 1;
+                }
+            }
+        }
+    }
+    &__u-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        //@include respond(sm) {
+        //  display: none;
+        //}
+        img {
+            width: 100%;
+            height: 100%;
+            @include respond(xl) {
+                width: 66%;
+                height: 66%;
+            }
+            @include respond(lg) {
+                width: 45%;
+                height: 45%;
+            }
+            @include respond(md) {
+                width: 33%;
+                height: 33%;
+            }
+            @include respond(sm) {
+                width: 91px;
+                height: 91px;
+            }
+        }
+    }
+    &__i-icon {
+        position: absolute;
+        bottom: -0.25rem;
+        right: 6rem;
+        display: block;
+        @include respond(xl) {
+            right: 2rem;
+        }
+        @include respond(lg) {
+            right: 0;
+        }
+        @include respond(md) {
+            right: -2rem;
+        }
+        @include respond(sm) {
+            right: 2rem;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            @include respond(xl) {
+                width: 66%;
+                height: 66%;
+            }
+            @include respond(lg) {
+                width: 45%;
+                height: 45%;
+            }
+            @include respond(md) {
+                width: 33%;
+                height: 33%;
+            }
+            @include respond(sm) {
+                width: 87px;
+                height: 92px;
+            }
+        }
+    }
+}
+
+.index-component-layout {
+    display: grid;
+    gap: 3.125rem 0;
+    @include respond(site-max-content) {
+        gap: 1rem 0;
+    }
+    @include respond(sm) {
+        gap: 1.5rem 0;
+    }
+}
+
+.modal-cookie {
+    &__container {
+        position: relative;
+        display: grid;
+        grid-auto-flow: column;
+        grid: minmax(7.25rem, max-content) / 1fr max-content;
+        place-items: center;
+        width: calc(100% - 1.875rem);
+        min-height: 7.25rem;
+        background-color: $color-white;
+        border-radius: 0.5rem;
+        margin: 1.875rem 1.25rem 0.938rem 1.25rem;
+        padding: 1.25rem 1.25rem;
+        gap: 3.5rem;
+        box-shadow: 0 5px 10px rgba($color-black, 0.1);
+        @include respond(md) {
+            grid: max-content 1fr / 1fr;
+            grid-auto-flow: row;
+            padding: 1.875rem 1.25rem;
+        }
+    }
+    &__container-text {
+        font-size: 0.95rem;
+        color: #737B7D;
+        @include respond(percents) {
+            span,
+            a {
+                font-size: 0.75rem !important;
+            }
+        }
+    }
+    &__container-button-and-close {
+        &--button {
+            border-radius: 0.25rem !important;
+        }
+        &--close {
+            position: absolute;
+            top: 13%;
+            right: 1.6rem;
+            font-size: 0.85rem;
+            @include respond(md) {
+                top: 2.5%;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.vue-universal-modal {
+    background-color: rgba($color-secondary, 0.1);
+}
