@@ -1,0 +1,22 @@
+{
+  "index.html": {
+    "file": "assets/index.d37cf9d8.js",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "../../../../@vite-plugin-pwa/virtual:pwa-register"
+    ],
+    "css": [
+      "assets/index.180d8725.css"
+    ],
+    "assets": [
+      "assets/footer-image-full-hd-3.82f86a3d.png",
+      "assets/info-image-fullhd.bffc14f1.webp"
+    ]
+  },
+  "../../../../@vite-plugin-pwa/virtual:pwa-register": {
+    "file": "assets/virtual_pwa-register.80a10119.js",
+    "src": "../../../../@vite-plugin-pwa/virtual:pwa-register",
+    "isDynamicEntry": true
+  }
+}
