@@ -20,6 +20,7 @@ import viteCompression from 'vite-plugin-compression';
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 export default defineConfig({
+  base: '/',
   resolve: {
     alias: {
       '@/': `${path.resolve(__dirname, 'src')}/`,
@@ -36,7 +37,7 @@ export default defineConfig({
         multipass: true,
       },
     }),
-    
+
     viteCompression(),
 
     // https://github.com/hannoeru/vite-plugin-pages
