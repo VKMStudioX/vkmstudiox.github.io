@@ -1,13 +1,13 @@
 {
   "index.html": {
-    "file": "assets/index.585c8d00.js",
+    "file": "assets/index.f7a97b98.js",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
       "../../../../@vite-plugin-pwa/virtual:pwa-register"
     ],
     "css": [
-      "assets/index.98dec4df.css"
+      "assets/index.abedfcaf.css"
     ],
     "assets": [
       "assets/info-image-fullhd.bffc14f1.webp",
