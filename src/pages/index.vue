@@ -1,5 +1,5 @@
 <template>
-  <ConsoleLoader v-if="!initialised" />
+  <!-- <ConsoleLoader v-if="!initialised" /> -->
   <div v-if="initialised" class="page-layout main-layout-max info-background">
     <div class="main-layout info">
       <InfoHeader />

@@ -6,48 +6,252 @@
 }
 
 @mixin horizontalTopCenter {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-// MEDIA QUERY MANAGER
-//X-Small	None	<576px
-//Small	sm	≥576px
-//Medium	md	≥768px
-//Large	lg	≥992px
-//Extra large	xl	≥1200px
-//Additional custom breakpoint - for some custom widths
-@mixin respond($breakpoint) {
-    @if $breakpoint==sm {
-        @media only screen and (max-width: 36rem) {
-            @content
-        }
-        ; //576px
+
+@mixin flex($direction: row,$justify: center,$align: center, $grow: none, $wrap: wrap) {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+
+    @if $direction == row-reverse {
+      -webkit-box-direction: reverse;
+      -webkit-box-orient: horizontal;
+    } @else if $direction == column {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+    } @else if $direction == column-reverse {
+      -webkit-box-direction: reverse;
+      -webkit-box-orient: vertical;
+    } @else {
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
     }
-    @if $breakpoint==md {
-        @media only screen and (max-width: 48rem) {
-            @content
-        }
-        ; //768px
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+
+    @if $justify == flex-start {
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+    } @else if $justify == flex-end {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+    } @else if $justify == space-between {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+    } @else if $justify == space-around {
+      -ms-flex-pack: distribute;
+    } @else {
+      -webkit-box-pack: $justify;
+      -ms-flex-pack: $justify;
     }
-    @if $breakpoint==lg {
-        @media only screen and (max-width: 62rem) {
-            @content
-        }
-        ; //992px
-        @media print {
-            @content
-        }
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    justify-content: $justify;
+
+
+
+    @if $align == flex-start {
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+    } @else if $align == flex-end {
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+    } @else {
+      -webkit-box-align: $align;
+      -ms-flex-align: $align;
     }
-    @if $breakpoint==xl {
-        @media only screen and (max-width: 75rem) {
-            @content
-        }
-        ; //1200px
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    align-items: $align;
+
+
+    -webkit-box-flex: $grow;
+    -webkit-flex-grow: $grow;
+    -moz-flex-grow: $grow;
+    -ms-flex-positive: $grow;
+    flex-grow: $grow;
+
+
+    webkit-flex-wrap: $wrap;
+    -moz-flex-wrap: $wrap;
+    @if $wrap == nowrap {
+      -ms-flex-wrap: nowrap;
+    } @else {
+      -ms-flex-wrap: $wrap;
     }
-    @media only screen and (max-width: $breakpoint) {
-        @content
+    flex-wrap: $wrap;
+
+  }
+
+  @mixin flex-shrink($int: 1) {
+    -webkit-flex-shrink: $int;
+    -moz-flex-shrink: $int;
+    -ms-flex-negative: $int;
+    flex-shrink: $int;
+  }
+  @mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+    -moz-flex-basis: $value;
+    -ms-flex-preferred-size: $value;
+    flex-basis: $value;
+  }
+  @mixin flex-flow($values: (row nowrap)) {
+    // No Webkit Box fallback.
+    -webkit-flex-flow: $values;
+    -moz-flex-flow: $values;
+    -ms-flex-flow: $values;
+    flex-flow: $values;
+  }
+  @mixin flex-order($int: 0) {
+    -webkit-box-ordinal-group: $int + 1;
+    -webkit-order: $int;
+    -moz-order: $int;
+    -ms-flex-order: $int;
+    order: $int;
+  }
+  @mixin align-self($value: auto) {
+    // No Webkit Box Fallback.
+    -webkit-align-self: $value;
+    -moz-align-self: $value;
+    @if $value == flex-start {
+      -ms-flex-item-align: start;
+    } @else if $value == flex-end {
+      -ms-flex-item-align: end;
+    } @else {
+      -ms-flex-item-align: $value;
     }
+    align-self: $value;
+  }
+  @mixin align-content($value: stretch) {
+    // No Webkit Box Fallback.
+    -webkit-align-content: $value;
+    -moz-align-content: $value;
+    @if $value == flex-start {
+      -ms-flex-line-pack: start;
+    } @else if $value == flex-end {
+      -ms-flex-line-pack: end;
+    } @else {
+      -ms-flex-line-pack: $value;
+    }
+    align-content: $value;
+  }
+
+  @mixin grid(
+    $rows: repeat(auto-fill, max-content),
+    $cols: repeat(auto-fill, max-content),
+    $col-gap: 0rem,
+    $row-gap: 0rem,
+    $justify: center,
+    $align: center,
+    $flow: row,
+    $place-items: initial,
+  ) {
+
+    display: -ms-grid;
+    display: grid;
+
+    -ms-grid-rows: $rows;
+    grid-template-rows: $rows;
+
+    -ms-grid-columns: $cols;
+    grid-template-columns: $cols;
+
+    grid-column-gap: $col-gap;
+    grid-row-gap: $row-gap;
+
+    align-self: $align;
+    -ms-grid-row-align: $align;
+
+    justify-self: $justify;
+    -ms-grid-column-align: $justify;
+
+    grid-auto-flow: $flow;
+
+    place-items: $place-items;
+
+
+  }
+
+  @mixin grid-area($row-start, $column-start, $row-end, $column-end) {
+    grid-area: $row-start / $column-start / $row-end / $column-end;
+    -ms-grid-row: $row-start;
+    -ms-grid-row-span: $row-end;
+    -ms-grid-column: $column-start;
+    -ms-grid-column-span: $column-end;
+  }
+
+  // MEDIA QUERY MANAGER
+  //X-Small	None	<576px
+  //Small	sm	≥576px
+  //Medium	md	≥768px
+  //Large	lg	≥992px
+  //Extra large	xl	≥1200px
+  //Additional custom breakpoint - for some custom widths
+  @mixin respond($breakpoint) {
+
+    @if $breakpoint == sm {
+      @media only screen and (max-width: 36rem) { @content };     //576px
+    }
+    @if $breakpoint == md {
+      @media only screen and (max-width: 48rem) { @content };     //768px
+    }
+    @if $breakpoint == lg {
+      @media only screen and (max-width: 62rem) { @content };     //992px
+      @media print { @content }
+    }
+
+    @if $breakpoint == xl {
+      @media only screen and (max-width: 75rem) and (-webkit-device-pixel-ratio: 1),
+      only screen and (max-width: 75rem) and (-webkit-min-device-pixel-ratio: 1.26),
+      only screen and (max-width: 75rem) and (-webkit-device-pixel-ratio: 2)
+      { @content };     //1200px
+    }
+
+    @if $breakpoint == xl-dpr-1 {
+      @media only screen and (max-width: 75rem) and (-webkit-device-pixel-ratio: 1)
+      { @content };     //1200px
+    }
+
+    @if $breakpoint == site-max-content {
+      @media only screen and (max-width: 97rem), // 1500px - full site content
+      only screen and (max-width: 75rem) and (-webkit-min-device-pixel-ratio: 1.1) and (-webkit-max-device-pixel-ratio: 1.25)  // 1200px and 125% - because of 1366 x 1.25% device-pixel-ratio is 1091, so it's < 1200px
+      { @content; };
+    }
+
+    @if $breakpoint == percents {
+      @media (-webkit-device-pixel-ratio: 1.25), (-webkit-device-pixel-ratio: 1.1) { @content; };
+    }
+
+    @if $breakpoint == percents-xl-plus {
+      @media only screen and (min-width: 75rem) and (-webkit-device-pixel-ratio: 1.25),
+      only screen and (min-width: 75rem) and (-webkit-device-pixel-ratio: 1.1)
+      { @content; };
+    }
+
+    @media only screen and (max-width: $breakpoint) { @content }; //XXX px
+  }
+
+@media only screen and (max-width: 85.375rem) and (-webkit-device-pixel-ratio: 1.25),
+only screen and (max-width: 85.375rem) and (-webkit-device-pixel-ratio: 1.1) {
+  * {
+    font-size: 75%;
+  }
+  span, a, p, input, textarea, li, {
+    font-size: 1rem;
+  }
+
+  #bwf-dp {
+    div {
+      font-size: 1rem;
+    }
+  }
 }
